@@ -30,6 +30,10 @@
                     $(function()
                     { //DOM Ready
                         freeboard.initialize(true);
+
+                        $.get("/assets/mockBoard.json", function (data) {
+                            freeboard.loadDashboard(data);
+                        });
                     });
                 });
     </script>

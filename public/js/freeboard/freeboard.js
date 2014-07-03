@@ -640,9 +640,9 @@ var freeboard = (function()
     {
         // We load these when we need them— no sense in loading more javascript and css if we're never using the editor.
         head.js(
-            assetRoot + "css/codemirror.css",
-            assetRoot + "css/codemirror-ambiance.css",
-            assetRoot + "js/codemirror.js",
+            assetRoot + "/assets/css/codemirror.css",
+            assetRoot + "/assets/css/codemirror-ambiance.css",
+            assetRoot + "/assets/js/codemirror.js",
             function(){
 
                 var exampleText = "// Example: Convert temp from C to F and truncate to 2 decimal places.\n// return (datasources[\"MyDatasource\"].sensor.tempInF * 1.8 + 32).toFixed(2);";
