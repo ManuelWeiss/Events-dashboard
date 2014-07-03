@@ -1,1 +1,43 @@
-{"allow_edit":true,"plugins":[],"panes":[{"width":1,"row":{"3":1},"col":{"3":1},"widgets":[{"type":"text_widget","settings":{"title":"Last user's locale","size":"regular","value":"JSON.parse(datasources[\"Mock stream\"].data).user.language","animate":true}},{"type":"indicator","settings":{"title":"New visitor?","value":"var isReturningUser = JSON.parse(datasources[\"Mock stream\"].data).user.returning;\n\nreturn !isReturningUser;","on_text":"Yes","off_text":"No"}},{"type":"sparkline","settings":{"title":"Last user IDs","value":"JSON.parse(datasources[\"Mock stream\"].data).user.userId"}}]}],"datasources":[{"name":"Mock stream","type":"MF_SSE_stream_plugin","settings":{"source_url":"/feed/registration"}}]}
+{
+    "allow_edit": true,
+    "plugins": [],
+    "panes": [{
+        "width": 1,
+        "row": {
+            "3": 1
+        },
+        "col": {
+            "3": 1
+        },
+        "widgets": [{
+            "type": "text_widget",
+            "settings": {
+                "title": "Last user's locale",
+                "size": "regular",
+                "value": "JSON.parse(datasources[\"Mock stream\"].data).user.language",
+                "animate": true
+            }
+        }, {
+            "type": "indicator",
+            "settings": {
+                "title": "New visitor?",
+                "value": "var isReturningUser = JSON.parse(datasources[\"Mock stream\"].data).user.returning;\n\nreturn !isReturningUser;",
+                "on_text": "Yes",
+                "off_text": "No"
+            }
+        }, {
+            "type": "sparkline",
+            "settings": {
+                "title": "Last user IDs",
+                "value": "JSON.parse(datasources[\"Mock stream\"].data).user.userId"
+            }
+        }]
+    }],
+    "datasources": [{
+        "name": "Mock stream",
+        "type": "MF_SSE_stream_plugin",
+        "settings": {
+            "source_url": "/feed/registration"
+        }
+    }]
+}
