@@ -14,14 +14,14 @@
             "settings": {
                 "title": "Last user's locale",
                 "size": "regular",
-                "value": "JSON.parse(datasources[\"Mock stream\"].data).user.language",
+                "value": "JSON.parse(datasources[\"Mock stream\"]).user.language",
                 "animate": true
             }
         }, {
             "type": "indicator",
             "settings": {
                 "title": "New visitor?",
-                "value": "var isReturningUser = JSON.parse(datasources[\"Mock stream\"].data).user.returning;\n\nreturn !isReturningUser;",
+                "value": "var isReturningUser = JSON.parse(datasources[\"Mock stream\"]).user.returning;\n\nreturn !isReturningUser;",
                 "on_text": "Yes",
                 "off_text": "No"
             }
@@ -29,7 +29,7 @@
             "type": "sparkline",
             "settings": {
                 "title": "Last user IDs",
-                "value": "JSON.parse(datasources[\"Mock stream\"].data).user.userId"
+                "value": "JSON.parse(datasources[\"Mock stream\"]).user.userId"
             }
         }]
     }],

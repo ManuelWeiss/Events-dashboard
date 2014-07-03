@@ -18,7 +18,7 @@
         };
 
         function addMsg(msg) {
-            updateCallback(msg);
+            updateCallback(msg.data);
         };
 
         // **onSettingsChanged(newSettings)** (required) : A public function we must implement that will be called when a user makes a change to the settings.
