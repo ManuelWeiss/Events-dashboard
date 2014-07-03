@@ -7,12 +7,41 @@
 // Best to encapsulate your plugin in a closure, although not required.
 (function()
 {
-    // ## A Datasource Plugin
-    //
-    // -------------------
-    // ### Datasource Definition
-    //
-    // -------------------
+    var myDatasourcePlugin = function(settings, updateCallback)
+    {
+        var self = this;
+
+        var currentSettings = settings;
+
+        function getData()
+        {
+            var chatFeed = new EventSource(currentSettings.source_url);
+            chatFeed.addEventListener("message", addMsg, false);
+        };
+
+        function addMsg (msg) {
+            updateCallback(msg);
+        };
+
+        // **onSettingsChanged(newSettings)** (required) : A public function we must implement that will be called when a user makes a change to the settings.
+        self.onSettingsChanged = function(newSettings)
+        {
+            currentSettings = newSettings;
+        };
+
+        // **updateNow()** (required) : A public function we must implement that will be called when the user wants to manually refresh the datasource
+        self.updateNow = function()
+        {
+        };
+
+        // **onDispose()** (required) : A public function we must implement that will be called when this instance of this plugin is no longer needed. Do anything you need to cleanup after yourself here.
+        self.onDispose = function()
+        {
+        };
+
+        getData();
+    };
+
     // **freeboard.loadDatasourcePlugin(definition)** tells freeboard that we are giving it a datasource plugin. It expects an object with the following:
     freeboard.loadDatasourcePlugin({
         // **type_name** (required) : A unique name for this plugin. This name should be as unique as possible to avoid collisions with other plugins, and should follow naming conventions for javascript variable and function declarations.
@@ -49,45 +78,5 @@
             newInstanceCallback(new myDatasourcePlugin(settings, updateCallback));
         }
     });
-
-
-    // ### Datasource Implementation
-    //
-    // -------------------
-    // Here we implement the actual datasource plugin. We pass in the settings and updateCallback.
-    var myDatasourcePlugin = function(settings, updateCallback)
-    {
-        var self = this;
-
-        var currentSettings = settings;
-
-        function getData()
-        {
-            var chatFeed = new EventSource(currentSettings.source_url);
-            chatFeed.addEventListener("message", addMsg, false);
-        }
-
-        function addMsg (msg) {
-            updateCallback(msg.data)
-        };
-
-        // **onSettingsChanged(newSettings)** (required) : A public function we must implement that will be called when a user makes a change to the settings.
-        self.onSettingsChanged = function(newSettings)
-        {
-            currentSettings = newSettings;
-        }
-
-        // **updateNow()** (required) : A public function we must implement that will be called when the user wants to manually refresh the datasource
-        self.updateNow = function()
-        {
-        }
-
-        // **onDispose()** (required) : A public function we must implement that will be called when this instance of this plugin is no longer needed. Do anything you need to cleanup after yourself here.
-        self.onDispose = function()
-        {
-        }
-
-        getData;
-    }
 
 }());
