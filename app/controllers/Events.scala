@@ -19,7 +19,17 @@ object Events extends Controller {
   def postEvent = Action(parse.json) { req => feedIn.push(req.body); Ok }
 
   /** Controller action for adding events via GET */
-  def addEvent(payload: String) = Action { req => feedIn.push(Json.parse(payload)); Ok }
+  def addEvent(payload: String) = Action {
+    req => feedIn.push(Json.parse(payload))
+    val byteArray = List(
+            0x47, 0x49, 0x46, 0x38, 0x39, 0x61, 0x01, 0x00,
+            0x01, 0x00, 0x80, 0x00, 0x00, 0xff, 0xff, 0xff,
+            0x00, 0x00, 0x00, 0x2c, 0x00, 0x00, 0x00, 0x00,
+            0x01, 0x00, 0x01, 0x00, 0x00, 0x02, 0x02, 0x44,
+            0x01, 0x00, 0x3b
+            ).map(_.toByte).toArray
+    Ok(byteArray).as("image/gif")
+  }
 
   /** Enumeratee for filtering messages based on stream */
   def filter_by_stream(stream: String) = Enumeratee.filter[JsValue] { json: JsValue => (json \ "stream").as[String] == stream }
