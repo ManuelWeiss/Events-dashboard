@@ -6,7 +6,7 @@
 
 // Best to encapsulate your plugin in a closure, although not required.
 (function () {
-    "user strict";
+    "use strict";
 
     var moonfruitDataSource = function (settings, updateCallback) {
         var self = this;

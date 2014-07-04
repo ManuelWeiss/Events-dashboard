@@ -1,1 +1,92 @@
-{"allow_edit":true,"plugins":[],"panes":[{"width":1,"row":{"3":1},"col":{"3":1},"widgets":[{"type":"text_widget","settings":{"title":"Last user's locale","size":"regular","value":"JSON.parse(datasources[\"Mock stream\"].data).user.language","animate":true}},{"type":"indicator","settings":{"title":"New visitor?","value":"JSON.parse(datasources[\"Mock stream\"].data).user.returning","on_text":"Yes","off_text":"No"}},{"type":"sparkline","settings":{"title":"Last user IDs","value":"JSON.parse(datasources[\"Mock stream\"].data).user.userId"}}]}],"datasources":[{"name":"Mock stream","type":"MF_SSE_stream_plugin","settings":{"source_url":"/feed/registration"}}]}
+{
+    "allow_edit": true,
+    "plugins": [],
+    "panes": [{
+        "title": "Last user registration",
+        "width": 1,
+        "row": {
+            "3": 1
+        },
+        "col": {
+            "3": 1
+        },
+        "widgets": [{
+            "type": "text_widget",
+            "settings": {
+                "title": "Locale",
+                "size": "regular",
+                "value": "JSON.parse(datasources[\"Registration\"]).user.language",
+                "animate": true
+            }
+        }, {
+            "type": "text_widget",
+            "settings": {
+                "title": "Price ID",
+                "size": "regular",
+                "value": "JSON.parse(datasources[\"Registration\"]).user.price_id",
+                "animate": true
+            }
+        }, {
+            "type": "indicator",
+            "settings": {
+                "title": "New visitor?",
+                "value": "var isReturningUser = JSON.parse(datasources[\"Registration\"]).user.returning;\n\nreturn !isReturningUser;",
+                "on_text": "Yes",
+                "off_text": "No"
+            }
+        }]
+    }, {
+        "title": "User events",
+        "width": 1,
+        "row": {
+            "3": 1
+        },
+        "col": {
+            "3": 2
+        },
+        "widgets": []
+    }],
+    "datasources": [{
+        "name": "Registration",
+        "type": "MF_SSE_stream_plugin",
+        "settings": {
+            "source_url": "/feed/registration"
+        }
+    }, {
+        "name": "All events",
+        "type": "MF_SSE_stream_plugin",
+        "settings": {
+            "source_url": "/all"
+        }
+    }, {
+        "name": "Page visit",
+        "type": "MF_SSE_stream_plugin",
+        "settings": {
+            "source_url": "/feed/pageLoad"
+        }
+    }, {
+        "name": "Build a site",
+        "type": "MF_SSE_stream_plugin",
+        "settings": {
+            "source_url": "/feed/buildAny"
+        }
+    }, {
+        "name": "Plan upgrade",
+        "type": "MF_SSE_stream_plugin",
+        "settings": {
+            "source_url": "/feed/planUpgrade"
+        }
+    }, {
+        "name": "Trial started",
+        "type": "MF_SSE_stream_plugin",
+        "settings": {
+            "source_url": "/feed/trialStarted"
+        }
+    }, {
+        "name": "Transaction",
+        "type": "MF_SSE_stream_plugin",
+        "settings": {
+            "source_url": "/feed/transaction"
+        }
+    }]
+}
