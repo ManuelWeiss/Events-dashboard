@@ -41,6 +41,13 @@ object Events extends Controller {
             }
     }
 
+    /** Enumeratee for filtering streams */
+    def filter_by_kv(key: String, value: String) = {
+          Enumeratee.filter[JsValue] {
+              json: JsValue => (json \ key).as[String] == value
+          }
+    }
+
     /** Enumeratee for aggregating events */
     def aggregate(stream: String) = Enumeratee.filter[JsValue] { json: JsValue => (json \ "stream").as[String] == stream }
 
@@ -62,6 +69,15 @@ object Events extends Controller {
         println(req.remoteAddress + " - feed connected")
         Ok.feed(feedOut
             &> filter_by_stream(stream)
+            &> Concurrent.buffer(50)
+            &> connDeathWatch(req.remoteAddress)
+            &> EventSource()).as("text/event-stream")
+    }
+
+    def filtered_feed(key: String, value: String) = Action { req =>
+        println(req.remoteAddress + " - feed connected")
+        Ok.feed(feedOut
+            &> filter_by_kv(key, value)
             &> Concurrent.buffer(50)
             &> connDeathWatch(req.remoteAddress)
             &> EventSource()).as("text/event-stream")

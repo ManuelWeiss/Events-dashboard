@@ -4,6 +4,7 @@
 
 # Home page
 GET     /                  controllers.Events.index
+GET     /feed/:key/:value  controllers.Events.filtered_feed(key: String, value: String)
 GET     /feed              controllers.Events.raw_feed(stream = "all")
 GET     /feed/:stream      controllers.Events.raw_feed(stream: String)
 GET     /aggregate/:stream controllers.Events.aggregate_feed(stream: String)
