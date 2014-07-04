@@ -8,14 +8,14 @@ import play.api.libs.json._
 import scala.language.postfixOps
 import scala.concurrent.duration._
 
-import controllers.ChatApplication
+import controllers.Events
 import org.joda.time.DateTime
 import scala.util.Random
 
 object ChatActors {
 
   /** SSE-Chat actor system */
-  val system = ActorSystem("sse-chat")
+  val system = ActorSystem("sse-events")
 
   /** Supervisor for test user actors */
   val supervisor = system.actorOf(Props(new Supervisor()), "ChatterSupervisor")
@@ -39,7 +39,7 @@ class Chatter(events: Seq[JsObject]) extends Actor {
     case ChatActors.Talk  => {
       val event = events(Random.nextInt(events.size))
 
-      ChatApplication.chatChannel.push(event)
+      Events.feedIn.push(event)
     }
   }
 }
