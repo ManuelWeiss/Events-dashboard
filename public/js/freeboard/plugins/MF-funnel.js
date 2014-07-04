@@ -49,6 +49,7 @@
                     }
                 }
             },
+            colors: ["#FF9500", "#423EB7", "#008653", "#9B5B00", "#4CC195"],
             plotOptions: {
                 series: {
                     dataLabels: {
@@ -57,12 +58,15 @@
                         color: '#FFFFFF',
                         softConnector: true
                     },
-                    neckWidth: '30%',
+                    neckWidth: '35%',
                     neckHeight: '25%'
 
                     //-- Other available options
                     // height: pixels or percent
                     // width: pixels or percent
+                },
+                funnel: {
+                    borderColor: 'none'
                 }
             },
             legend: {
