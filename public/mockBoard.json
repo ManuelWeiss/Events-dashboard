@@ -36,7 +36,7 @@
             }
         }]
     }, {
-        "title": "User events",
+        "title": "User events per second",
         "width": 1,
         "row": {
             "3": 1
@@ -49,6 +49,12 @@
             "settings": {
                 "title": "Registrations",
                 "value": "JSON.parse(datasources[\"Registration\"])"
+            }
+        }, {
+            "type": "line_chart",
+            "settings": {
+                "title": "Visits",
+                "value": "JSON.parse(datasources[\"Page visit\"])"
             }
         }]
     }],
