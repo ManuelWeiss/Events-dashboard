@@ -4,6 +4,7 @@
 
 # Home page
 GET     /                  controllers.Events.index
+GET     /feed              controllers.Events.raw_feed
 GET     /feed/:stream      controllers.Events.raw_feed(stream: String)
 GET     /aggregate/:stream controllers.Events.aggregate_feed(stream: String)
 POST    /event             controllers.Events.postEvent

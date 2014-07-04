@@ -51,8 +51,18 @@ object Events extends Controller {
     ).as("text/event-stream")
   }
 
+  /** feed with filter */
+  def raw_feed = Action { req =>
+    println(req.remoteAddress + " - feed connected")
+    Ok.feed(feedOut
+      &> Concurrent.buffer(50)
+      &> connDeathWatch(req.remoteAddress)
+      &> EventSource()
+    ).as("text/event-stream")
+  }
 
-  /** Controller action serving activity based on stream */
+
+  /** feed with filter */
   def raw_feed(stream: String) = Action { req =>
     println(req.remoteAddress + " - feed connected")
     Ok.feed(feedOut
