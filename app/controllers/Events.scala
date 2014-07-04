@@ -52,7 +52,7 @@ object Events extends Controller {
   }
 
   /** feed with filter */
-  def raw_feed = Action { req =>
+  def all_feeds = Action { req =>
     println(req.remoteAddress + " - feed connected")
     Ok.feed(feedOut
       &> Concurrent.buffer(50)

@@ -61,7 +61,7 @@ object UserEvents {
         )
     ),
     Json.obj(
-        "stream" -> "registration",
+        "stream" -> "transaction",
         "page" -> Json.obj (
             "category" -> "Dashboard",
             "path" -> "/",
@@ -89,7 +89,7 @@ object UserEvents {
         )
     ),
     Json.obj(
-        "stream" -> "registration",
+        "stream" -> "trialStarted",
         "page" -> Json.obj (
             "category" -> "Dashboard",
             "path" -> "/",
@@ -187,7 +187,7 @@ object UserEvents {
         )
     ),
     Json.obj(
-        "stream" -> "login",
+        "stream" -> "pageLoad",
         "page" -> Json.obj (
             "category" -> "Pricing",
             "path" -> "/pricing",
@@ -201,7 +201,7 @@ object UserEvents {
         )
     ),
     Json.obj(
-        "stream" -> "login",
+        "stream" -> "pageLoad",
         "page" -> Json.obj (
             "category" -> "Home",
             "path" -> "/",
@@ -215,7 +215,7 @@ object UserEvents {
         )
     ),
     Json.obj(
-        "stream" -> "site-creation",
+        "stream" -> "pageLoad",
         "page" -> Json.obj (
             "category" -> "Home",
             "path" -> "/",
@@ -229,7 +229,7 @@ object UserEvents {
         )
     ),
     Json.obj(
-        "stream" -> "site-creation",
+        "stream" -> "pageLoad",
         "page" -> Json.obj (
             "category" -> "Home",
             "path" -> "/",
@@ -243,7 +243,7 @@ object UserEvents {
         )
     ),
     Json.obj(
-        "stream" -> "site-creation",
+        "stream" -> "buildAny",
         "page" -> Json.obj (
             "category" -> "Home",
             "path" -> "/",
@@ -257,7 +257,7 @@ object UserEvents {
         )
     ),
     Json.obj(
-        "stream" -> "site-creation",
+        "stream" -> "buildAny",
         "page" -> Json.obj (
             "category" -> "Home",
             "path" -> "/",
@@ -271,7 +271,7 @@ object UserEvents {
         )
     ),
     Json.obj(
-        "stream" -> "site-creation",
+        "stream" -> "buildAny",
         "page" -> Json.obj (
             "category" -> "Home",
             "path" -> "/",
@@ -285,7 +285,7 @@ object UserEvents {
         )
     ),
     Json.obj(
-        "stream" -> "subscription",
+        "stream" -> "planUpgrade",
         "page" -> Json.obj (
             "category" -> "Pricing",
             "path" -> "/pricing",
@@ -299,7 +299,7 @@ object UserEvents {
         )
     ),
     Json.obj(
-        "stream" -> "subscription",
+        "stream" -> "planUpgrade",
         "page" -> Json.obj (
             "category" -> "Pricing",
             "path" -> "/pricing",
@@ -313,7 +313,7 @@ object UserEvents {
         )
     ),
     Json.obj(
-        "stream" -> "subscription",
+        "stream" -> "planUpgrade",
         "page" -> Json.obj (
             "category" -> "Pricing",
             "path" -> "/pricing",
@@ -327,7 +327,7 @@ object UserEvents {
         )
     ),
     Json.obj(
-        "stream" -> "subscription",
+        "stream" -> "trialStarted",
         "page" -> Json.obj (
             "category" -> "Kickstart Home",
             "path" -> "/kickstart",
@@ -341,7 +341,7 @@ object UserEvents {
         )
     ),
     Json.obj(
-        "stream" -> "subscription",
+        "stream" -> "trialStarted",
         "page" -> Json.obj (
             "category" -> "Kickstart Home",
             "path" -> "/kickstart",
@@ -355,7 +355,7 @@ object UserEvents {
         )
     ),
     Json.obj(
-        "stream" -> "cancellation",
+        "stream" -> "trialStarted",
         "page" -> Json.obj (
             "category" -> "Billing",
             "path" -> "/billing",
@@ -369,7 +369,7 @@ object UserEvents {
         )
     ),
     Json.obj(
-        "stream" -> "cancellation",
+        "stream" -> "transaction",
         "page" -> Json.obj (
             "category" -> "Billing",
             "path" -> "/billing",
