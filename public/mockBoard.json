@@ -95,7 +95,7 @@
         "name": "All events",
         "type": "MF_SSE_stream_plugin",
         "settings": {
-            "source_url": "/all"
+            "source_url": "/feed"
         }
     }, {
         "name": "Page visit",
