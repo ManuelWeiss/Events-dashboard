@@ -57,6 +57,21 @@
                 "value": "JSON.parse(datasources[\"Page visit\"])"
             }
         }]
+    }, {
+        "title": "Visitor funnel",
+        "width": 1,
+        "row": {
+            "3": 1
+        },
+        "col": {
+            "3": 3
+        },
+        "widgets": [{
+            "type": "funnel",
+            "settings": {
+                "value": "JSON.parse(datasources[\"All events\"])"
+            }
+        }]
     }],
     "datasources": [{
         "name": "Registration",

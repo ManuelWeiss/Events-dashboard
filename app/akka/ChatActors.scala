@@ -27,7 +27,7 @@ object ChatActors {
 class Supervisor() extends Actor {
 
   val events = context.actorOf(Props(new Chatter(UserEvents.events)))
-  context.system.scheduler.schedule(1 seconds, 0.1 seconds, events, ChatActors.Talk)
+  context.system.scheduler.schedule(0.4 seconds, 0.1 seconds, events, ChatActors.Talk)
 
   def receive = { case _ => }
 }
@@ -46,6 +46,48 @@ class Chatter(events: Seq[JsObject]) extends Actor {
 
 object UserEvents {
   val events = Seq(
+          Json.obj(
+        "stream" -> "registration",
+        "page" -> Json.obj (
+            "category" -> "Dashboard",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 34242423,
+          "language" -> "en-GB",
+          "returning" -> false,
+          "price_id" -> "SMT"
+        )
+    ),
+    Json.obj(
+        "stream" -> "transaction",
+        "page" -> Json.obj (
+            "category" -> "Dashboard",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 34242423,
+          "language" -> "en-GB",
+          "returning" -> false,
+          "price_id" -> "SMT"
+        )
+    ),
+    Json.obj(
+        "stream" -> "registration",
+        "page" -> Json.obj (
+            "category" -> "Dashboard",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 34242423,
+          "language" -> "en-GB",
+          "returning" -> true,
+          "price_id" -> "KA52CM"
+        )
+    ),
     Json.obj(
         "stream" -> "registration",
         "page" -> Json.obj (
@@ -173,7 +215,583 @@ object UserEvents {
         )
     ),
     Json.obj(
-        "stream" -> "login",
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 6456456,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "KA52CM"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Pricing",
+            "path" -> "/pricing",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 3453453,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "SMT"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 5676422,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "52CM1A"
+        )
+    ),
+          Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 6456456,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "KA52CM"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Pricing",
+            "path" -> "/pricing",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 3453453,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "SMT"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 5676422,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "52CM1A"
+        )
+    ),    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 6456456,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "KA52CM"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Pricing",
+            "path" -> "/pricing",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 3453453,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "SMT"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 5676422,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "52CM1A"
+        )
+    ),    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 6456456,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "KA52CM"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Pricing",
+            "path" -> "/pricing",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 3453453,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "SMT"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 5676422,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "52CM1A"
+        )
+    ),    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 6456456,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "KA52CM"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Pricing",
+            "path" -> "/pricing",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 3453453,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "SMT"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 5676422,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "52CM1A"
+        )
+    ),    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 6456456,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "KA52CM"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Pricing",
+            "path" -> "/pricing",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 3453453,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "SMT"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 5676422,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "52CM1A"
+        )
+    ),    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 6456456,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "KA52CM"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Pricing",
+            "path" -> "/pricing",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 3453453,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "SMT"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 5676422,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "52CM1A"
+        )
+    ),    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 6456456,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "KA52CM"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Pricing",
+            "path" -> "/pricing",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 3453453,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "SMT"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 5676422,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "52CM1A"
+        )
+    ),    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 6456456,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "KA52CM"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Pricing",
+            "path" -> "/pricing",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 3453453,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "SMT"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 5676422,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "52CM1A"
+        )
+    ),    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 6456456,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "KA52CM"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Pricing",
+            "path" -> "/pricing",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 3453453,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "SMT"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 5676422,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "52CM1A"
+        )
+    ),
+          Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 6456456,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "KA52CM"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Pricing",
+            "path" -> "/pricing",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 3453453,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "SMT"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 5676422,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "52CM1A"
+        )
+    ),    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 6456456,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "KA52CM"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Pricing",
+            "path" -> "/pricing",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 3453453,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "SMT"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 5676422,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "52CM1A"
+        )
+    ),    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 6456456,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "KA52CM"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Pricing",
+            "path" -> "/pricing",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 3453453,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "SMT"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 5676422,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "52CM1A"
+        )
+    ),    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 6456456,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "KA52CM"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Pricing",
+            "path" -> "/pricing",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 3453453,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "SMT"
+        )
+    ),
+    Json.obj(
+        "stream" -> "pageLoad",
+        "page" -> Json.obj (
+            "category" -> "Home",
+            "path" -> "/",
+            "environment" -> "development"
+        ),
+        "user" -> Json.obj (
+          "userId" -> 5676422,
+          "language" -> "en-US",
+          "returning" -> true,
+          "price_id" -> "52CM1A"
+        )
+    ),    Json.obj(
+        "stream" -> "pageLoad",
         "page" -> Json.obj (
             "category" -> "Home",
             "path" -> "/",
