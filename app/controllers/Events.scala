@@ -18,6 +18,9 @@ object Events extends Controller {
   /** Controller action for POSTing events */
   def postEvent = Action(parse.json) { req => feedIn.push(req.body); Ok }
 
+  /** Controller action for adding events via GET */
+  def addEvent(payload: String) = Action { req => feedIn.push(Json.parse(payload)); Ok }
+
   /** Enumeratee for filtering messages based on stream */
   def filter_by_stream(stream: String) = Enumeratee.filter[JsValue] { json: JsValue => (json \ "stream").as[String] == stream }
 
@@ -26,7 +29,7 @@ object Events extends Controller {
 
   /** Enumeratee for detecting disconnect of SSE stream */
   def connDeathWatch(addr: String): Enumeratee[JsValue, JsValue] =
-    Enumeratee.onIterateeDone{ () => println(addr + " - SSE disconnected") }
+    Enumeratee.onIterateeDone{ () => println(addr + " - feed disconnected") }
 
   def aggregate_feed(stream: String) = Action { req =>
     Ok.feed(feedOut
