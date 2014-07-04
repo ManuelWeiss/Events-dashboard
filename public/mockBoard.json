@@ -56,6 +56,18 @@
                 "title": "Visits",
                 "value": "JSON.parse(datasources[\"Page visit\"])"
             }
+        }, {
+            "type": "line_chart",
+            "settings": {
+                "title": "Upgrades",
+                "value": "JSON.parse(datasources[\"Plan upgrade\"])"
+            }
+        }, {
+            "type": "line_chart",
+            "settings": {
+                "title": "New Trials",
+                "value": "JSON.parse(datasources[\"Trial started\"])"
+            }
         }]
     }],
     "datasources": [{
