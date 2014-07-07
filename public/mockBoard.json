@@ -48,25 +48,67 @@
             "type": "line_chart",
             "settings": {
                 "title": "Registrations",
-                "value": "JSON.parse(datasources[\"Registration\"])"
+                "value": "JSON.parse(datasources[\"Registration\"])",
+                "time_unit": "1"
             }
         }, {
             "type": "line_chart",
             "settings": {
                 "title": "Visits",
-                "value": "JSON.parse(datasources[\"Page visit\"])"
+                "value": "JSON.parse(datasources[\"Page visit\"])",
+                "time_unit": "1"
             }
         }, {
             "type": "line_chart",
             "settings": {
                 "title": "Upgrades",
-                "value": "JSON.parse(datasources[\"Plan upgrade\"])"
+                "value": "JSON.parse(datasources[\"Plan upgrade\"])",
+                "time_unit": "1"
             }
         }, {
             "type": "line_chart",
             "settings": {
                 "title": "New Trials",
-                "value": "JSON.parse(datasources[\"Trial started\"])"
+                "value": "JSON.parse(datasources[\"Trial started\"])",
+                "time_unit": "1"
+            }
+        }]
+    }, {
+        "title": "User events per minute",
+        "width": 1,
+        "row": {
+            "3": 1
+        },
+        "col": {
+            "3": 3
+        },
+        "widgets": [{
+            "type": "line_chart",
+            "settings": {
+                "title": "Registrations",
+                "value": "JSON.parse(datasources[\"Registration\"])",
+                "time_unit": "60"
+            }
+        }, {
+            "type": "line_chart",
+            "settings": {
+                "title": "Visits",
+                "value": "JSON.parse(datasources[\"Page visit\"])",
+                "time_unit": "60"
+            }
+        }, {
+            "type": "line_chart",
+            "settings": {
+                "title": "Upgrades",
+                "value": "JSON.parse(datasources[\"Plan upgrade\"])",
+                "time_unit": "60"
+            }
+        }, {
+            "type": "line_chart",
+            "settings": {
+                "title": "New Trials",
+                "value": "JSON.parse(datasources[\"Trial started\"])",
+                "time_unit": "60"
             }
         }]
     }, {

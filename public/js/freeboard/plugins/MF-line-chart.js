@@ -18,7 +18,7 @@
         }
     });
 
-    function renderLineChart (element) {
+    function renderLineChart (element, time_unit) {
         var chart;
 
         $(element).find('.linechart').highcharts({
@@ -80,7 +80,7 @@
 
                     for (i = -19; i <= 0; i++) {
                         data.push({
-                            x: time + i * 1000,
+                            x: time + i * 1000 * time_unit,
                             y: 0
                         });
                     }
@@ -107,14 +107,14 @@
             setInterval($.proxy(function () {
                 addValueToChart(thisChart, eventCount);
                 eventCount = 0;
-            }, this), 1000);
+            }, this), 1000 * settings.time_unit);
         };
 
         this.render = function (element) {
             $(element).append(titleElement).append(lineChartElement);
 
             thisChart = element;
-            renderLineChart(element);
+            renderLineChart(element, settings.time_unit);
             updateTimer();
         }
 
@@ -149,6 +149,13 @@
                 name: "value",
                 display_name: "Value",
                 type: "calculated"
+            },
+            {
+                name: "time_unit",
+                display_name: "Time unit (in seconds)",
+                default_value: "1",
+                type: "number",
+                description: "The unit of time used for averaging"
             }
         ],
         newInstance: function (settings, newInstanceCallback) {
